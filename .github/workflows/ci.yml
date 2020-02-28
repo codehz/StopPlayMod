@@ -2,7 +2,7 @@ name: CI
 
 on: [push]
 env:
-  sdk_version: 200220
+  sdk_version: 200228
 jobs:
   build:
 
@@ -67,11 +67,11 @@ jobs:
       run: |
         mkdir SDK
         cd SDK
-        wget https://github.com/codehz/wine-bdlauncher/releases/download/${{ env.sdk_version }}/pkg.tar.xz
+        wget https://github.com/codehz/ElementZero/releases/download/${{ env.sdk_version }}/pkg.tar.xz
         tar xvf pkg.tar.xz --strip 1
         rm -rf pkg.tar.xz
       shell: bash
-    
+
     - name: Build
       run: |
         cur=$(cygpath -m $(pwd))
@@ -88,7 +88,7 @@ jobs:
         popd
         tar cvfJ pkg.tar.xz Dist/*
       shell: bash
-      
+
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
