@@ -1,7 +1,6 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
-# Change to your mod name
-project ("WBDLSample")
+project ("StopSound")
 
 set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -10,7 +9,7 @@ set (CMAKE_CXX_EXTENSIONS ON)
 # Override it in CMakeSettings.json or command line option
 set (MOD_SDK_PATH $ENV{BedrockServerHome})
 
-include_directories (${MOD_SDK_PATH}/Include/MinecraftHeaders ${MOD_SDK_PATH}/Include/Public)
+include_directories (SYSTEM ${MOD_SDK_PATH}/Include/MinecraftHeaders ${MOD_SDK_PATH}/Include/Public)
 link_directories (${MOD_SDK_PATH}/Lib)
 
 find_package (SQLiteCpp CONFIG REQUIRED)
@@ -41,4 +40,4 @@ function (add_mod name)
 endfunction ()
 
 # Change the name or append more
-add_subdirectory (SampleMod)
+add_subdirectory (StopPlay)
